@@ -1,5 +1,7 @@
 # Seattle Terrain Analysis
+## Final Map
 
+![Seattle Terrain Analysis](Seattle%20Terrain%20Analysis.png)
 Terrain analysis project created using QGIS and USGS 1 Meter DEM data.
 
 ## Outputs
