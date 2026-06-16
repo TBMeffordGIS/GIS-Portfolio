@@ -1,0 +1,68 @@
+# Seattle Terrain Analysis
+
+## Project Overview
+
+This project demonstrates terrain visualization and analysis using USGS 1 Meter DEM data within QGIS.
+
+The workflow included:
+
+- DEM mosaic creation
+- DEM clipping to study area
+- Hillshade generation
+- Contour extraction (25 meter interval)
+- Terrain visualization using elevation tinting
+- Cartographic map production
+
+## Study Area
+
+King County, Washington
+
+## Data Sources
+
+- USGS 1 Meter Digital Elevation Model (DEM)
+- OpenStreetMap Basemap
+
+## Software
+
+- QGIS 3.44
+- GDAL
+- QGIS Layout Manager
+
+## Analysis Workflow
+
+### 1. DEM Mosaic
+
+Merged multiple USGS DEM tiles into a continuous elevation surface.
+
+### 2. Study Area Extraction
+
+Clipped DEM to the project boundary.
+
+### 3. Hillshade Generation
+
+Created hillshade raster to enhance terrain visualization.
+
+### 4. Contour Generation
+
+Generated contour lines at 25 meter intervals.
+
+### 5. Terrain Visualization
+
+Combined elevation tinting, hillshade, and contours into a final cartographic product.
+
+## Deliverables
+
+- Terrain map
+- Hillshade raster
+- Contour layer
+- Project documentation
+
+## Skills Demonstrated
+
+- Raster Processing
+- Terrain Analysis
+- DEM Management
+- Cartography
+- Hillshade Creation
+- Contour Extraction
+- QGIS Layout Design
