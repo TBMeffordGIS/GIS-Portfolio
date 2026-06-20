@@ -41,3 +41,5 @@ A utility asset may have a unique identifier but still lack a human-readable loc
 - Multiple assets can share the same nearest address.
 - GPS coordinates are precise but difficult for humans to communicate verbally.
 - Field crews often rely on landmarks and visual context rather than coordinates alone.
+
+### Proposed Solution
