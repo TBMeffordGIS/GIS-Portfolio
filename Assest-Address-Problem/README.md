@@ -29,3 +29,7 @@ How can field personnel, engineers, and GIS professionals quickly locate a speci
 - Example GIS workflows
 - 360° imagery examples
 - Location referencing concepts
+
+## Figure 1: The Asset Address Problem
+
+Coming soon.
