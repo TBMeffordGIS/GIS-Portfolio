@@ -32,4 +32,4 @@ How can field personnel, engineers, and GIS professionals quickly locate a speci
 
 ## Figure 1: The Asset Address Problem
 
-Coming soon.
+A utility asset may have a unique identifier but still lack a human-readable location reference. Traditional street addresses work for buildings but often fail for poles, transformers, hydrants, valves, and other distributed infrastructure assets.
