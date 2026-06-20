@@ -72,13 +72,9 @@ GPS Coordinates
 Human Readable Location Context
    ↓
 Field Crew Navigation...
-
-Field Crew Navigation
 ```
 
 ## Figure 2: Traditional Address vs Human Readable Asset Location
-
-Coming soon.
 
 | Traditional Location Method | Human Readable Location Method |
 |----------------------------|--------------------------------|
