@@ -43,3 +43,17 @@ A utility asset may have a unique identifier but still lack a human-readable loc
 - Field crews often rely on landmarks and visual context rather than coordinates alone.
 
 ### Proposed Solution
+
+360° imagery provides something traditional addresses and coordinates cannot: visual context.
+
+Instead of describing an asset as being located at a coordinate pair or near a street address, personnel can reference a location using imagery that captures what a person would actually see in the field.
+
+When linked to GIS records, a 360° image can function as a human-readable location reference that complements asset IDs, GPS coordinates, and traditional asset management systems.
+
+Potential advantages include:
+
+- Faster asset discovery
+- Reduced navigation errors
+- Improved communication between office and field staff
+- Better training and onboarding
+- Enhanced support for digital twin environments
