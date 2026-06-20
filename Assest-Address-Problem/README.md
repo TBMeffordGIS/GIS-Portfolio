@@ -86,6 +86,8 @@ Field Crew Navigation
 | Technician Interpretation | Immediate Recognition |
 | Search & Verification | Visual Confirmation
 
-## Figure 3: Utility Asset Location Example
+## Figure 3: Traditional Asset Location vs Human Readable Asset Location
 
-Figure coming soon.
+![Traditional Asset Location vs Human Readable Asset Location](traditional-vs-human-readable-location.png)
+
+Comparison of traditional utility asset location methods and a human-readable location approach using imagery, visual landmarks, and field context.
