@@ -85,3 +85,7 @@ Field Crew Navigation
 | Map Reference | Field Context |
 | Technician Interpretation | Immediate Recognition |
 | Search & Verification | Visual Confirmation
+
+## Figure 3: Utility Asset Location Example
+
+Figure coming soon.
