@@ -79,3 +79,12 @@ Field Crew Navigation
 ## Figure 2: Traditional Address vs Human Readable Asset Location
 
 Coming soon.
+
+| Traditional Location Method | Human Readable Location Method |
+|----------------------------|--------------------------------|
+| Asset ID | Asset ID |
+| GPS Coordinates | GPS Coordinates |
+| Nearest Street Address | 360° Imagery |
+| Written Directions | Visual Landmarks |
+| Map Reference | Field Context |
+| Technician Interpretation | Immediate Recognition |
