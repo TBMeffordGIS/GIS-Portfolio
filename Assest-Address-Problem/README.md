@@ -57,3 +57,17 @@ Potential advantages include:
 - Improved communication between office and field staff
 - Better training and onboarding
 - Enhanced support for digital twin environments
+
+### Conceptual Workflow
+
+Asset ID
+↓
+GIS Database
+↓
+GPS Coordinates
+↓
+360° Imagery
+↓
+Human Readable Location Context
+↓
+Field Crew Navigation
