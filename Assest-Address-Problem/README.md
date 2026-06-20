@@ -60,14 +60,15 @@ Potential advantages include:
 
 ### Conceptual Workflow
 
+```text
 Asset ID
-↓
+   ↓
 GIS Database
-↓
+   ↓
 GPS Coordinates
-↓
+   ↓
 360° Imagery
-↓
+   ↓
 Human Readable Location Context
-↓
+   ↓
 Field Crew Navigation
