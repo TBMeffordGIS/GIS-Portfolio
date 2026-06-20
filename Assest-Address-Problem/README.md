@@ -88,6 +88,10 @@ Field Crew Navigation
 
 ## Figure 3: Traditional Asset Location vs Human Readable Asset Location
 
+![Traditional Asset Location vs Human Readable Asset Location](traditional-vs-human-readable-location.png)
+
+Comparison of traditional utility asset location methods and a human-readable location approach using imagery, visual landmarks, and field context.
+
 ## Example Scenario
 
 A utility dispatcher receives a request to inspect transformer P-1024.
@@ -97,7 +101,3 @@ Using a traditional workflow, the technician receives an asset ID, GPS coordinat
 Using a human-readable location workflow, the technician receives the same asset information along with imagery, visual landmarks, and field context. The technician can immediately recognize the asset location and confirm it visually before arriving on site.
 
 This example demonstrates how imagery can complement traditional GIS asset records by providing location context that coordinates and addresses alone cannot easily communicate.
-
-![Traditional Asset Location vs Human Readable Asset Location](traditional-vs-human-readable-location.png)
-
-Comparison of traditional utility asset location methods and a human-readable location approach using imagery, visual landmarks, and field context.
