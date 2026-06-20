@@ -33,3 +33,11 @@ How can field personnel, engineers, and GIS professionals quickly locate a speci
 ## Figure 1: The Asset Address Problem
 
 A utility asset may have a unique identifier but still lack a human-readable location reference. Traditional street addresses work for buildings but often fail for poles, transformers, hydrants, valves, and other distributed infrastructure assets.
+
+### Why Existing Addresses Fail
+
+- Assets often exist between street addresses.
+- Assets may be located inside easements or rights-of-way.
+- Multiple assets can share the same nearest address.
+- GPS coordinates are precise but difficult for humans to communicate verbally.
+- Field crews often rely on landmarks and visual context rather than coordinates alone.
