@@ -101,3 +101,13 @@ Using a traditional workflow, the technician receives an asset ID, GPS coordinat
 Using a human-readable location workflow, the technician receives the same asset information along with imagery, visual landmarks, and field context. The technician can immediately recognize the asset location and confirm it visually before arriving on site.
 
 This example demonstrates how imagery can complement traditional GIS asset records by providing location context that coordinates and addresses alone cannot easily communicate.
+
+## Why Utility Assets Are Different
+
+Unlike buildings, utility assets are often located between street addresses, inside easements, behind structures, or across large service territories.
+
+A transformer, valve, hydrant, or power pole may have a unique asset identifier and precise GPS coordinates, but those references do not always provide the visual context needed for rapid field identification.
+
+As a result, field personnel frequently rely on landmarks, local knowledge, and visual cues to locate infrastructure assets.
+
+This creates an opportunity for imagery-based location systems to complement traditional GIS asset records by providing a human-readable representation of asset location.
