@@ -169,3 +169,19 @@ This approach enhances existing GIS workflows by combining spatial accuracy with
 
              Visual Confirmation in the Field
 This conceptual architecture illustrates how enterprise GIS records, metadata, work orders, and 360° imagery combine to provide a human-readable location reference for field personnel.
+
+## Considerations and Limitations
+
+The human-readable asset location concept is intended to complement existing GIS workflows rather than replace existing spatial referencing methods.
+
+Several practical considerations should be acknowledged:
+
+- 360° imagery requires periodic updates as infrastructure and surrounding environments change.
+- Images should be captured using consistent positioning and orientation to maximize usability.
+- Storage requirements increase as imagery collections grow.
+- Metadata quality is critical for efficient searching and retrieval.
+- Personnel should continue using GIS coordinates as the authoritative spatial reference.
+
+Like any supporting dataset, imagery should be maintained as part of an organization's overall asset management strategy.
+
+When properly managed, panoramic imagery becomes a long-term operational resource rather than simply a collection of photographs.
