@@ -7,12 +7,46 @@
 <title>T. Bryan Mefford | GIS Portfolio</title>
 
 <style>
-
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
     background:#111827;
     color:white;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    background:#0f172a;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    z-index:1000;
+    border-bottom:1px solid #334155;
+}
+
+nav .logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:28px;
+    margin:0;
+    padding:0;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+nav a:hover{
+    color:#60a5fa;
 }
 
 header{
@@ -29,7 +63,14 @@ header h1{
 }
 
 header p{
-    .subtitle{
+    font-size:24px;
+    color:#cbd5e1;
+    max-width:1000px;
+    margin:auto;
+    line-height:1.7;
+}
+
+.subtitle{
     font-weight:600;
 }
 
@@ -56,12 +97,6 @@ header p{
 .hero-buttons a:hover{
     background:#2563eb;
 }
-    font-size:24px;
-    color:#cbd5e1;
-    max-width:1000px;
-    margin:auto;
-    line-height:1.7;
-}
 
 section{
     width:90%;
@@ -76,53 +111,157 @@ h2{
     padding-bottom:10px;
 }
 
+p{
+    font-size:18px;
+    line-height:1.7;
+    color:#d1d5db;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:28px;
+    margin-top:35px;
+}
+
+.project-card{
+    background:#1f2937;
+    border:1px solid #374151;
+    border-radius:14px;
+    padding:28px;
+}
+
+.project-card h3{
+    margin-top:0;
+    font-size:24px;
+    color:white;
+}
+
+.project-card a{
+    color:#60a5fa;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:25px;
+}
+
+.skills span{
+    background:#1f2937;
+    border:1px solid #374151;
+    padding:10px 14px;
+    border-radius:999px;
+    color:#dbeafe;
+}
+
+footer{
+    background:#0f172a;
+    text-align:center;
+    padding:35px 20px;
+    color:#94a3b8;
+    border-top:1px solid #334155;
+}
 </style>
 
 </head>
 
 <body>
 
-<header>
+<nav>
+    <div class="logo">T. Bryan Mefford</div>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://github.com/TBMeffordGIS" target="_blank">GitHub</a></li>
+    </ul>
+</nav>
 
 <header>
+    <h1>T. Bryan Mefford</h1>
 
-<h1>T. Bryan Mefford</h1>
+    <p class="subtitle">
+        GIS • Remote Sensing • Utility Infrastructure
+    </p>
 
-<p class="subtitle">
-GIS • Remote Sensing • Utility Infrastructure
-</p>
+    <p class="tagline">
+        Reality Capture • Metadata • Digital Twins • Field Operations
+    </p>
 
-<p class="tagline">
-Reality Capture • Metadata • Digital Twins • Field Operations
-</p>
-
-<div class="hero-buttons">
-  <a href="#projects">View Projects</a>
-  <a href="https://github.com/TBMeffordGIS" target="_blank">View GitHub</a>
-</div>
-
+    <div class="hero-buttons">
+        <a href="#projects">View Projects</a>
+        <a href="https://github.com/TBMeffordGIS" target="_blank">View GitHub</a>
+    </div>
 </header>
 
 <section id="about">
+    <h2>About Me</h2>
 
-<h2>About</h2>
-
-<p>
-I specialize in GIS, remote sensing, utility infrastructure, oriented imagery, and reality capture workflows that transform spatial data into practical decision support. My work focuses on bridging enterprise GIS, metadata, 360° imagery, and field operations to improve how organizations visualize, manage, and interact with geospatial information.
-</p>
-
+    <p>
+        I specialize in GIS, remote sensing, utility infrastructure, oriented imagery, and reality capture workflows that transform spatial data into practical decision support. My work focuses on bridging enterprise GIS, metadata, 360° imagery, and field operations to improve how organizations visualize, manage, and interact with geospatial information.
+    </p>
 </section>
 
 <section id="projects">
+    <h2>Featured Projects</h2>
 
-<h2>Featured Projects</h2>
+    <div class="project-grid">
 
-<p>
-Project cards coming next.
-</p>
+        <div class="project-card">
+            <h3>Asset Address Problem</h3>
+            <p>
+                A research-based GIS project exploring how utility infrastructure can be described through human-readable location context using GIS, metadata, and imagery.
+            </p>
+            <a href="Asset-Address-Problem/">View Project →</a>
+        </div>
 
+        <div class="project-card">
+            <h3>Seattle Terrain Analysis</h3>
+            <p>
+                A QGIS terrain analysis project using USGS elevation data to create hillshade, contours, and a professional terrain visualization map.
+            </p>
+            <a href="Seattle-Terrain-Analysis/">View Project →</a>
+        </div>
+
+    </div>
 </section>
 
-</body>
+<section id="skills">
+    <h2>Technical Skills</h2>
 
+    <div class="skills">
+        <span>GIS</span>
+        <span>QGIS</span>
+        <span>ArcGIS</span>
+        <span>Remote Sensing</span>
+        <span>Utility GIS</span>
+        <span>Metadata</span>
+        <span>Digital Twins</span>
+        <span>Reality Capture</span>
+        <span>Python</span>
+        <span>SQL</span>
+        <span>Leaflet</span>
+        <span>CesiumJS</span>
+        <span>GitHub</span>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+
+    <p>
+        GitHub: <a href="https://github.com/TBMeffordGIS" target="_blank" style="color:#60a5fa;">github.com/TBMeffordGIS</a>
+    </p>
+</section>
+
+<footer>
+    © 2026 T. Bryan Mefford | GIS Portfolio
+</footer>
+
+</body>
 </html>
