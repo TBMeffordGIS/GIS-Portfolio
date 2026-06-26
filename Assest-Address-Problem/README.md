@@ -268,3 +268,24 @@ The objective is not to replace existing GIS attributes, but to supplement them 
 | Work Order ID | String | WO-18493 | | Associated maintenance record |
 | GIS Feature ID | String | 0003489 | ✓ | Enterprise GIS relationship |
 | Remarks | Text | Vegetation partially obscures transformer. | | Additional field observations |
+
+# Appendix B – Example Utility Asset Record
+
+The following example illustrates how a human-readable location record could extend a traditional GIS asset record. The values shown are representative only and are intended to demonstrate one possible implementation.
+
+| Attribute | Example Value |
+|-----------|---------------|
+| Asset ID | TX-1024 |
+| Utility Type | Electric |
+| Asset Type | Pole-Mounted Transformer |
+| Latitude | 33.452183 |
+| Longitude | -112.581274 |
+| Nearest Address | 123 Main Street |
+| Human-Readable Location | Northwest corner of Main Street and Oak Avenue, adjacent to a wooden privacy fence and approximately 15 feet north of Fire Hydrant H-18. |
+| 360° Image | TX1024_20260620.jpg |
+| Camera Heading | 182° |
+| Capture Date | 2026-06-20 |
+| Last Inspection | 2026-06-20 |
+| Work Order | WO-18493 |
+| Asset Status | Active |
+| Notes | Transformer visible from roadway. Access available from utility easement. Moderate vegetation present on west side. |
