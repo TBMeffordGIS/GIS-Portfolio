@@ -123,3 +123,19 @@ Unlike coordinates or written directions, panoramic imagery preserves surroundin
 When linked to GIS asset records, a panoramic image becomes more than documentation. It becomes a visual reference that reduces interpretation, improves confidence, and accelerates asset verification.
 
 Rather than replacing GIS coordinates, 360° imagery complements existing asset management systems by providing the human-readable context that numerical location references cannot communicate.
+
+## Integration with Existing GIS Workflows
+
+The human-readable asset location concept is intended to complement existing GIS and asset management systems rather than replace them.
+
+A typical workflow may consist of:
+
+1. A unique asset identifier stored within the enterprise GIS.
+2. Geographic coordinates used for mapping and routing.
+3. A linked 360° image providing visual context.
+4. Metadata describing capture date, orientation, camera position, and field conditions.
+5. Direct access to the imagery from the GIS record.
+
+From a technician's perspective, selecting an asset record could immediately display both its mapped location and its surrounding visual environment. Rather than navigating solely by coordinates, personnel would understand what they should expect to see before arriving on site.
+
+This approach enhances existing GIS workflows by combining spatial accuracy with visual understanding.
