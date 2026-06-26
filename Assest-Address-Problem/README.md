@@ -139,3 +139,33 @@ A typical workflow may consist of:
 From a technician's perspective, selecting an asset record could immediately display both its mapped location and its surrounding visual environment. Rather than navigating solely by coordinates, personnel would understand what they should expect to see before arriving on site.
 
 This approach enhances existing GIS workflows by combining spatial accuracy with visual understanding.
+
+### Figure 4: Conceptual Integration with Existing GIS
+
+                   Utility Enterprise GIS
+
+                           │
+
+                    Asset Record (P-1024)
+         Asset ID • Coordinates • Attributes • Status
+
+                           │
+
+             ┌─────────────┼─────────────┐
+             │             │             │
+
+        Metadata      360° Imagery    Work Orders
+             │             │             │
+
+             └─────────────┼─────────────┘
+
+                  Human Readable Location
+
+                           │
+
+                 Field Technician Device
+
+                           │
+
+             Visual Confirmation in the Field
+This conceptual architecture illustrates how enterprise GIS records, metadata, work orders, and 360° imagery combine to provide a human-readable location reference for field personnel.
