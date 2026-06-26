@@ -225,3 +225,22 @@ By combining GIS, metadata, and 360° imagery, organizations have the opportunit
 As utilities continue to invest in digital twins, field mobility, computer vision, and AI-assisted workflows, the importance of connecting spatial accuracy with human understanding will continue to grow.
 
 Ultimately, **the Asset Address Problem is not a problem of identification. It is a problem of context.** Solving that problem may help bridge the gap between how computers store location and how people naturally understand it.
+
+# References
+
+1. Esri. *ArcGIS Oriented Imagery Documentation.* https://doc.arcgis.com/en/arcgis-online/manage-data/oriented-imagery.htm
+
+2. Esri. *ArcGIS Utility Network Documentation.* https://pro.arcgis.com/en/pro-app/latest/help/data/utility-network/
+
+3. Open Geospatial Consortium (OGC). *OGC Standards and Specifications.* https://www.ogc.org/standards/
+
+4. ISO 19115 Geographic Information — Metadata.
+
+5. ISO 19157 Geographic Information — Data Quality.
+
+6. National Institute of Standards and Technology (NIST). *Framework for Improving Critical Infrastructure Cybersecurity.*
+
+7. United States Geological Survey (USGS). *The National Map.* https://www.usgs.gov/the-national-map
+
+8. Federal Geographic Data Committee (FGDC). *Content Standard for Digital Geospatial Metadata (CSDGM).* https://www.fgdc.gov/
+
