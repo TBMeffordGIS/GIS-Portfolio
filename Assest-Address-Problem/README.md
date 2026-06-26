@@ -244,3 +244,27 @@ Ultimately, **the Asset Address Problem is not a problem of identification. It i
 
 8. Federal Geographic Data Committee (FGDC). *Content Standard for Digital Geospatial Metadata (CSDGM).* https://www.fgdc.gov/
 
+# Appendix A – Proposed Human-Readable Asset Metadata Schema
+
+The following schema represents one possible implementation for extending existing GIS asset records with human-readable location metadata.
+
+The objective is not to replace existing GIS attributes, but to supplement them with information that improves visual context, field navigation, asset verification, and future digital twin workflows.
+
+| Field Name | Data Type | Example | Required | Purpose |
+|------------|-----------|---------|:--------:|---------|
+| Asset ID | String | TX-1024 | ✓ | Unique asset identifier |
+| Utility Type | String | Electric | ✓ | Utility classification |
+| Asset Type | String | Transformer | ✓ | Equipment classification |
+| Latitude | Double | 33.452183 | ✓ | Geographic position |
+| Longitude | Double | -112.581274 | ✓ | Geographic position |
+| Capture Date | Date | 2026-06-20 | ✓ | Image acquisition date |
+| Capture Time | Time | 14:35 MST | | Time of image capture |
+| Camera Heading | Integer | 182° | ✓ | Camera viewing direction |
+| Camera Height | Decimal | 2.4 m | | Camera position above ground |
+| Direction of Travel | String | Northbound | | Vehicle or camera direction |
+| Image Filename | String | TX1024_20260620.jpg | ✓ | Linked panoramic image |
+| Weather Conditions | String | Clear | | Environmental context |
+| Inspector | String | Vehicle 12 | | Image capture source |
+| Work Order ID | String | WO-18493 | | Associated maintenance record |
+| GIS Feature ID | String | 0003489 | ✓ | Enterprise GIS relationship |
+| Remarks | Text | Vegetation partially obscures transformer. | | Additional field observations |
