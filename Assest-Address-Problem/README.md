@@ -111,3 +111,15 @@ A transformer, valve, hydrant, or power pole may have a unique asset identifier 
 As a result, field personnel frequently rely on landmarks, local knowledge, and visual cues to locate infrastructure assets.
 
 This creates an opportunity for imagery-based location systems to complement traditional GIS asset records by providing a human-readable representation of asset location.
+
+## Why 360° Imagery Works
+
+Traditional location methods communicate where an asset should be.
+
+360° imagery communicates what the technician should expect to see.
+
+Unlike coordinates or written directions, panoramic imagery preserves surrounding visual context including nearby structures, roads, vegetation, utility equipment, fences, access points, and landmarks. These environmental cues are often the information field personnel naturally use when locating infrastructure.
+
+When linked to GIS asset records, a panoramic image becomes more than documentation. It becomes a visual reference that reduces interpretation, improves confidence, and accelerates asset verification.
+
+Rather than replacing GIS coordinates, 360° imagery complements existing asset management systems by providing the human-readable context that numerical location references cannot communicate.
