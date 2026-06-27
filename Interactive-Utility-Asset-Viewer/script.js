@@ -72,6 +72,9 @@ const utilityAssets = [
     }
 ];
 
+// Store all map markers
+const markers = [];
+
 // Add markers and popups
 utilityAssets.forEach(asset => {
 
@@ -84,7 +87,7 @@ switch (asset.type) {
     case "Valve": icon = valveIcon; break;
 }
 
-L.marker(asset.coordinates, { icon: icon })
+const marker = L.marker(asset.coordinates, { icon: icon })
         .addTo(map)
         .bindPopup(`
             <strong>${asset.name}</strong><br>
@@ -92,6 +95,9 @@ L.marker(asset.coordinates, { icon: icon })
             Status: ${asset.status}<br>
             Last Inspection: ${asset.inspection}
         `);
+    markers.push({
+    marker: marker,
+    asset: asset
 });
 
 // Automatically zoom the map to show all assets
@@ -102,3 +108,16 @@ const bounds = L.latLngBounds(
 map.fitBounds(bounds, {
     padding: [40, 40]
 });
+
+// Filter assets by type
+document.getElementById("asset-type").addEventListener("change", function () {
+    const selectedType = this.value;
+
+    markers.forEach(item => {
+        if (selectedType === "All" || item.asset.type === selectedType) {
+            item.marker.addTo(map);
+        } else {
+            map.removeLayer(item.marker);
+        }
+    });
+});                      
