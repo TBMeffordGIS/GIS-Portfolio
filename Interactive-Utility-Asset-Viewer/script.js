@@ -50,3 +50,12 @@ utilityAssets.forEach(asset => {
             Last Inspection: ${asset.inspection}
         `);
 });
+
+// Automatically zoom the map to show all assets
+const bounds = L.latLngBounds(
+    utilityAssets.map(asset => asset.coordinates)
+);
+
+map.fitBounds(bounds, {
+    padding: [40, 40]
+});
