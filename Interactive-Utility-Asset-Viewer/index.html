@@ -32,8 +32,19 @@ A Web GIS demonstration using Leaflet.js to visualize utility infrastructure ass
 <main>
 
 <div id="control-panel">
+
     <h2>Asset Controls</h2>
-    <p>Filters and search tools will be added here.</p>
+
+    <label for="asset-type">Filter by Asset Type</label>
+
+    <select id="asset-type">
+        <option value="All">All Assets</option>
+        <option value="Transformer">Transformers</option>
+        <option value="Pole">Utility Poles</option>
+        <option value="Hydrant">Fire Hydrants</option>
+        <option value="Valve">Water Valves</option>
+    </select>
+
 </div>
 
 <div id="map"></div>
