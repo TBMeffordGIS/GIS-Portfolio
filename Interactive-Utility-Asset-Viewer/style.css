@@ -129,3 +129,80 @@ main{
 #map{
     flex:1;
 }
+
+/* ==========================
+   MODULE 5 - LEGEND
+========================== */
+
+#asset-count{
+    margin-top:20px;
+    margin-bottom:25px;
+    padding:10px;
+    background:#111827;
+    border:1px solid #374151;
+    border-radius:6px;
+    font-weight:bold;
+    text-align:center;
+}
+
+#legend{
+    margin-top:20px;
+    padding:15px;
+    background:#111827;
+    border:1px solid #374151;
+    border-radius:6px;
+}
+
+#legend h3{
+    margin-top:0;
+    margin-bottom:15px;
+}
+
+#legend p{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:10px 0;
+}
+
+.legend-red,
+.legend-blue,
+.legend-orange,
+.legend-green{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    display:inline-block;
+}
+
+.legend-red{
+    background:#dc2626;
+}
+
+.legend-blue{
+    background:#2563eb;
+}
+
+.legend-orange{
+    background:#ea580c;
+}
+
+.legend-green{
+    background:#16a34a;
+}
+
+#asset-search,
+#asset-type{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    margin-bottom:18px;
+    border-radius:6px;
+    border:1px solid #475569;
+    background:#0f172a;
+    color:white;
+}
+
+label{
+    font-weight:bold;
+}
