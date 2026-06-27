@@ -96,3 +96,36 @@ footer{
     }
 
 }
+
+/* ==========================
+   MODULE 3 - LAYOUT
+========================== */
+
+main{
+    display:flex;
+    height:calc(100vh - 180px);
+}
+
+#control-panel{
+    width:320px;
+    background:#1f2937;
+    color:#ffffff;
+    border-right:1px solid #374151;
+    padding:20px;
+    box-sizing:border-box;
+    overflow-y:auto;
+}
+
+#control-panel h2{
+    margin-top:0;
+    font-size:24px;
+}
+
+#control-panel p{
+    color:#cbd5e1;
+    line-height:1.6;
+}
+
+#map{
+    flex:1;
+}
