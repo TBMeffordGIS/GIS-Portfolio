@@ -75,19 +75,27 @@ const utilityAssets = [
 // Store all map markers
 const markers = [];
 
-// Add markers and popups
-utilityAssets.forEach(asset => {
-
-    let icon;
-
-switch (asset.type) {
-    case "Transformer": icon = transformerIcon; break;
-    case "Pole": icon = poleIcon; break;
-    case "Hydrant": icon = hydrantIcon; break;
-    case "Valve": icon = valveIcon; break;
+// Assign icon by asset type
+function getIcon(assetType) {
+    switch (assetType) {
+        case "Transformer":
+            return transformerIcon;
+        case "Pole":
+            return poleIcon;
+        case "Hydrant":
+            return hydrantIcon;
+        case "Valve":
+            return valveIcon;
+        default:
+            return poleIcon;
+    }
 }
 
-const marker = L.marker(asset.coordinates, { icon: icon })
+// Add markers and popups
+utilityAssets.forEach(asset => {
+    const marker = L.marker(asset.coordinates, {
+        icon: getIcon(asset.type)
+    })
         .addTo(map)
         .bindPopup(`
             <strong>${asset.name}</strong><br>
@@ -95,9 +103,11 @@ const marker = L.marker(asset.coordinates, { icon: icon })
             Status: ${asset.status}<br>
             Last Inspection: ${asset.inspection}
         `);
+
     markers.push({
-    marker: marker,
-    asset: asset
+        marker: marker,
+        asset: asset
+    });
 });
 
 // Automatically zoom the map to show all assets
@@ -109,15 +119,30 @@ map.fitBounds(bounds, {
     padding: [40, 40]
 });
 
-// Filter assets by type
-document.getElementById("asset-type").addEventListener("change", function () {
-    const selectedType = this.value;
+// Apply asset filters
+function applyFilters() {
+    const selectedType = document.getElementById("asset-type").value;
+    const searchText = document.getElementById("asset-search").value.toLowerCase();
 
     markers.forEach(item => {
-        if (selectedType === "All" || item.asset.type === selectedType) {
+        const matchesType =
+            selectedType === "All" || item.asset.type === selectedType;
+
+        const matchesSearch =
+            item.asset.name.toLowerCase().includes(searchText) ||
+            item.asset.type.toLowerCase().includes(searchText) ||
+            item.asset.status.toLowerCase().includes(searchText);
+
+        if (matchesType && matchesSearch) {
             item.marker.addTo(map);
         } else {
             map.removeLayer(item.marker);
         }
     });
-});                      
+}
+
+// Filter by asset type
+document.getElementById("asset-type").addEventListener("change", applyFilters);
+
+// Search assets by name, type, or status
+document.getElementById("asset-search").addEventListener("input", applyFilters);
