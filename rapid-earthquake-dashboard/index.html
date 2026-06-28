@@ -74,6 +74,45 @@ main{
     color:#fbbf24;
 }
 
+.legend{
+    background:#1f2937;
+    border:1px solid #374151;
+    border-radius:8px;
+    padding:12px;
+    margin:18px 0;
+}
+
+.legend h3{
+    margin-top:0;
+    font-size:16px;
+}
+
+.legend p{
+    margin:8px 0;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.legend-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    display:inline-block;
+}
+
+.yellow{
+    background:#facc15;
+}
+
+.orange{
+    background:#f97316;
+}
+
+.red{
+    background:#dc2626;
+}
+
 footer{
     font-size:13px;
     color:#94a3b8;
@@ -86,7 +125,7 @@ footer{
 
 <header>
     <h1>Rapid Earthquake Intelligence Dashboard</h1>
-    <p>Live earthquake visualization using free and open data sources</p>
+    <p>Live earthquake visualization for Venezuela and northern South America using free and open data sources</p>
 </header>
 
 <main>
@@ -104,12 +143,19 @@ footer{
         <strong id="max-mag">Loading...</strong>
     </div>
 
+    <div class="legend">
+        <h3>Magnitude Legend</h3>
+        <p><span class="legend-dot yellow"></span> Magnitude 2.5–3.9</p>
+        <p><span class="legend-dot orange"></span> Magnitude 4.0–5.9</p>
+        <p><span class="legend-dot red"></span> Magnitude 6.0+</p>
+    </div>
+
     <p>
-        This dashboard displays recent earthquake activity from the USGS GeoJSON feed.
+        This dashboard displays recent earthquake activity for the Venezuela and northern South America region using live USGS GeoJSON data.
     </p>
 
     <footer>
-        Data source: USGS Earthquake Hazards Program.
+        Data source: USGS Earthquake Hazards Program. Seismic data updates automatically when the page loads.
     </footer>
 </div>
 
@@ -157,7 +203,7 @@ fetch(usgsUrl)
             let quakeColor = "#facc15";
 
             if (mag >= 6) {
-               quakeColor = "#dc2626";
+                quakeColor = "#dc2626";
             } else if (mag >= 4) {
                 quakeColor = "#f97316";
             }
