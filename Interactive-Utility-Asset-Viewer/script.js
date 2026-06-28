@@ -121,10 +121,14 @@ map.fitBounds(bounds, {
 
 // Apply asset filters
 function applyFilters() {
+
     const selectedType = document.getElementById("asset-type").value;
     const searchText = document.getElementById("asset-search").value.toLowerCase();
 
+    let visibleCount = 0;
+
     markers.forEach(item => {
+
         const matchesType =
             selectedType === "All" || item.asset.type === selectedType;
 
@@ -135,10 +139,16 @@ function applyFilters() {
 
         if (matchesType && matchesSearch) {
             item.marker.addTo(map);
+            visibleCount++;
         } else {
             map.removeLayer(item.marker);
         }
+
     });
+
+    document.getElementById("asset-count").textContent =
+        `Showing ${visibleCount} of ${markers.length} assets`;
+
 }
 
 // Filter by asset type
