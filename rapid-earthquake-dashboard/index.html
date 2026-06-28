@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rapid Earthquake Intelligence Dashboard</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#111827;
+    color:white;
+}
+
+header{
+    background:#1f2937;
+    padding:22px;
+    text-align:center;
+    border-bottom:1px solid #374151;
+}
+
+header h1{
+    margin:0;
+    font-size:28px;
+}
+
+header p{
+    color:#cbd5e1;
+    margin:8px 0 0 0;
+}
+
+main{
+    display:flex;
+    height:calc(100vh - 105px);
+}
+
+#panel{
+    width:330px;
+    background:#111827;
+    border-right:1px solid #374151;
+    padding:20px;
+    overflow-y:auto;
+}
+
+#panel h2{
+    margin-top:0;
+}
+
+#panel p{
+    color:#cbd5e1;
+    line-height:1.6;
+}
+
+#map{
+    flex:1;
+    height:100%;
+}
+
+.stat{
+    background:#1f2937;
+    border:1px solid #374151;
+    border-radius:8px;
+    padding:12px;
+    margin-bottom:12px;
+}
+
+.stat strong{
+    display:block;
+    font-size:22px;
+    color:#fbbf24;
+}
+
+footer{
+    font-size:13px;
+    color:#94a3b8;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Rapid Earthquake Intelligence Dashboard</h1>
+    <p>Live earthquake visualization using free and open data sources</p>
+</header>
+
+<main>
+
+<div id="panel">
+    <h2>Event Summary</h2>
+
+    <div class="stat">
+        <span>Earthquakes Loaded</span>
+        <strong id="quake-count">Loading...</strong>
+    </div>
+
+    <div class="stat">
+        <span>Largest Magnitude</span>
+        <strong id="max-mag">Loading...</strong>
+    </div>
+
+    <p>
+        This dashboard displays recent earthquake activity from the USGS GeoJSON feed.
+    </p>
+
+    <footer>
+        Data source: USGS Earthquake Hazards Program.
+    </footer>
+</div>
+
+<div id="map"></div>
+
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+const map = L.map("map").setView([8.0, -66.0], 5);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: "&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+const usgsUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+
+fetch(usgsUrl)
+    .then(response => response.json())
+    .then(data => {
+        const earthquakes = data.features;
+
+        document.getElementById("quake-count").textContent = earthquakes.length;
+
+        let maxMag = 0;
+        const bounds = [];
+
+        earthquakes.forEach(event => {
+            const coords = event.geometry.coordinates;
+            const lon = coords[0];
+            const lat = coords[1];
+            const depth = coords[2];
+            const mag = event.properties.mag || 0;
+            const place = event.properties.place;
+            const time = new Date(event.properties.time).toLocaleString();
+
+            if (mag > maxMag) {
+                maxMag = mag;
+            }
+
+            const radius = Math.max(5, mag * 4);
+
+            const marker = L.circleMarker([lat, lon], {
+                radius: radius,
+                color: "#f97316",
+                fillColor: "#f97316",
+                fillOpacity: 0.6,
+                weight: 1
+            }).addTo(map);
+
+            marker.bindPopup(`
+                <strong>${place}</strong><br>
+                Magnitude: ${mag}<br>
+                Depth: ${depth} km<br>
+                Time: ${time}
+            `);
+
+            bounds.push([lat, lon]);
+        });
+
+        document.getElementById("max-mag").textContent = maxMag.toFixed(1);
+
+        if (bounds.length > 0) {
+            map.fitBounds(bounds, {
+                padding: [30, 30]
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
