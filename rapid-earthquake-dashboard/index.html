@@ -120,14 +120,14 @@ footer{
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-const map = L.map("map").setView([8.0, -66.0], 5);
+const map = L.map("map").setView([7.0, -66.0], 6);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: "&copy; OpenStreetMap contributors"
 }).addTo(map);
 
-const usgsUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+const usgsUrl = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-01-01&minmagnitude=2.5&minlatitude=-2&maxlatitude=15&minlongitude=-75&maxlongitude=-55";
 
 fetch(usgsUrl)
     .then(response => response.json())
