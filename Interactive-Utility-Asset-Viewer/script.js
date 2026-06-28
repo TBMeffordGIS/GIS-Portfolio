@@ -173,3 +173,8 @@ document.getElementById("asset-type").addEventListener("change", applyFilters);
 
 // Search assets by name, type, or status
 document.getElementById("asset-search").addEventListener("input", applyFilters);
+
+// Force Leaflet to recalculate map size after layout loads
+setTimeout(function () {
+    map.invalidateSize();
+}, 500);
