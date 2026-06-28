@@ -206,3 +206,30 @@ main{
 label{
     font-weight:bold;
 }
+/* ==========================
+   MODULE 6 - SELECTED ASSET
+========================== */
+
+hr{
+    border:none;
+    border-top:1px solid #374151;
+    margin:25px 0;
+}
+
+#asset-details{
+    background:#111827;
+    border:1px solid #374151;
+    border-radius:6px;
+    padding:15px;
+}
+
+#asset-details h3{
+    margin-top:0;
+    margin-bottom:12px;
+}
+
+#asset-details p{
+    color:#cbd5e1;
+    line-height:1.6;
+    margin:0;
+}
