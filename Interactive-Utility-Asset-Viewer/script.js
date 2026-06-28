@@ -93,17 +93,34 @@ function getIcon(assetType) {
 
 // Add markers and popups
 utilityAssets.forEach(asset => {
-    const marker = L.marker(asset.coordinates, {
-        icon: getIcon(asset.type)
-    })
-        .addTo(map)
-        .bindPopup(`
-            <strong>${asset.name}</strong><br>
-            Type: ${asset.type}<br>
-            Status: ${asset.status}<br>
-            Last Inspection: ${asset.inspection}
-        `);
+   const marker = L.marker(asset.coordinates, {
+    icon: getIcon(asset.type)
+})
+    .addTo(map)
+    .bindPopup(`
+        <strong>${asset.name}</strong><br>
+        Type: ${asset.type}<br>
+        Status: ${asset.status}<br>
+        Last Inspection: ${asset.inspection}
+    `)
+    .on("click", function () {
 
+        document.getElementById("asset-details").innerHTML = `
+            <h3>Selected Asset</h3>
+
+            <strong>${asset.name}</strong>
+
+            <p><strong>Type:</strong> ${asset.type}</p>
+
+            <p><strong>Status:</strong> ${asset.status}</p>
+
+            <p><strong>Inspection:</strong> ${asset.inspection}</p>
+
+            <p><strong>Coordinates:</strong><br>
+            ${asset.coordinates[0].toFixed(4)}, ${asset.coordinates[1].toFixed(4)}</p>
+        `;
+
+    });
     markers.push({
         marker: marker,
         asset: asset
