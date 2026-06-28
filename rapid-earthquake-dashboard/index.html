@@ -60,7 +60,9 @@ main{
     height:100%;
 }
 
-.stat{
+.stat,
+.legend,
+#selected-earthquake{
     background:#1f2937;
     border:1px solid #374151;
     border-radius:8px;
@@ -74,15 +76,8 @@ main{
     color:#fbbf24;
 }
 
-.legend{
-    background:#1f2937;
-    border:1px solid #374151;
-    border-radius:8px;
-    padding:12px;
-    margin:18px 0;
-}
-
-.legend h3{
+.legend h3,
+#selected-earthquake h3{
     margin-top:0;
     font-size:16px;
 }
@@ -111,6 +106,16 @@ main{
 
 .red{
     background:#dc2626;
+}
+
+.detail-label{
+    font-weight:bold;
+    color:white;
+}
+
+#selected-earthquake a{
+    color:#60a5fa;
+    font-weight:bold;
 }
 
 footer{
@@ -143,11 +148,21 @@ footer{
         <strong id="max-mag">Loading...</strong>
     </div>
 
+    <div class="stat">
+        <span>Last Updated</span>
+        <strong id="last-updated">Loading...</strong>
+    </div>
+
     <div class="legend">
         <h3>Magnitude Legend</h3>
         <p><span class="legend-dot yellow"></span> Magnitude 2.5–3.9</p>
         <p><span class="legend-dot orange"></span> Magnitude 4.0–5.9</p>
         <p><span class="legend-dot red"></span> Magnitude 6.0+</p>
+    </div>
+
+    <div id="selected-earthquake">
+        <h3>Selected Earthquake</h3>
+        <p>Click an earthquake on the map to view details.</p>
     </div>
 
     <p>
@@ -181,6 +196,7 @@ fetch(usgsUrl)
         const earthquakes = data.features;
 
         document.getElementById("quake-count").textContent = earthquakes.length;
+        document.getElementById("last-updated").textContent = new Date().toLocaleTimeString();
 
         let maxMag = 0;
         const bounds = [];
@@ -191,8 +207,10 @@ fetch(usgsUrl)
             const lat = coords[1];
             const depth = coords[2];
             const mag = event.properties.mag || 0;
-            const place = event.properties.place;
+            const place = event.properties.place || "Location unavailable";
             const time = new Date(event.properties.time).toLocaleString();
+            const eventId = event.id;
+            const usgsLink = event.properties.url;
 
             if (mag > maxMag) {
                 maxMag = mag;
@@ -222,6 +240,20 @@ fetch(usgsUrl)
                 Depth: ${depth} km<br>
                 Time: ${time}
             `);
+
+            marker.on("click", function () {
+                document.getElementById("selected-earthquake").innerHTML = `
+                    <h3>Selected Earthquake</h3>
+
+                    <p><span class="detail-label">Location:</span><br>${place}</p>
+                    <p><span class="detail-label">Magnitude:</span> ${mag}</p>
+                    <p><span class="detail-label">Depth:</span> ${depth} km</p>
+                    <p><span class="detail-label">Time:</span><br>${time}</p>
+                    <p><span class="detail-label">Coordinates:</span><br>${lat.toFixed(4)}, ${lon.toFixed(4)}</p>
+                    <p><span class="detail-label">USGS Event ID:</span><br>${eventId}</p>
+                    <p><a href="${usgsLink}" target="_blank">View official USGS event →</a></p>
+                `;
+            });
 
             bounds.push([lat, lon]);
         });
