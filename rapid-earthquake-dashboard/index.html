@@ -202,7 +202,20 @@ footer{
         <p>Click an earthquake on the map to view details.</p>
     </div>
 
-    <div class="source-card">
+    
+    <div class="source-card" id="situation-report">
+        <h3>Situation Report</h3>
+        <p><strong>Status</strong><br><span id="situation-status">Monitoring</span></p>
+        <p><strong>Largest Event</strong><br><span id="situation-largest">Loading...</span></p>
+        <p><strong>Aftershocks / Events</strong><br><span id="situation-aftershocks">Loading...</span></p>
+        <p><strong>Reported Fatalities</strong><br><span id="impact-fatalities">No verified reports</span></p>
+        <p><strong>Reported Injuries</strong><br><span id="impact-injuries">No verified reports</span></p>
+        <p><strong>Buildings Damaged</strong><br><span id="impact-buildings">No verified reports</span></p>
+        <p><strong>Most Recent Official Update</strong><br><span id="impact-update">Pending verification</span></p>
+        <p><strong>Information Sources</strong><br>USGS • ReliefWeb • GDACS</p>
+    </div>
+
+<div class="source-card">
         <h3>Data Source</h3>
         <p>
             USGS Earthquake Hazards Program. Seismic data updates automatically when the page loads.
@@ -250,6 +263,7 @@ fetch(usgsUrl)
         const earthquakes = data.features;
 
         document.getElementById("quake-count").textContent = earthquakes.length;
+        document.getElementById("situation-aftershocks").textContent = earthquakes.length;
         document.getElementById("last-updated").textContent = new Date().toLocaleTimeString();
 
         let maxMag = 0;
@@ -313,6 +327,7 @@ fetch(usgsUrl)
         });
 
         document.getElementById("max-mag").textContent = maxMag.toFixed(1);
+        document.getElementById("situation-largest").textContent = maxMag.toFixed(1) + " Mw";
 
         if (bounds.length > 0) {
             map.fitBounds(bounds, {
