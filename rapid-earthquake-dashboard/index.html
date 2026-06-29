@@ -62,7 +62,8 @@ main{
 
 .stat,
 .legend,
-#selected-earthquake{
+#selected-earthquake,
+.source-card{
     background:#1f2937;
     border:1px solid #374151;
     border-radius:8px;
@@ -76,8 +77,17 @@ main{
     color:#fbbf24;
 }
 
+.status-live{
+    color:#22c55e;
+}
+
+.status-offline{
+    color:#ef4444;
+}
+
 .legend h3,
-#selected-earthquake h3{
+#selected-earthquake h3,
+.source-card h3{
     margin-top:0;
     font-size:16px;
 }
@@ -118,6 +128,22 @@ main{
     font-weight:bold;
 }
 
+button{
+    width:100%;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:12px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
 footer{
     font-size:13px;
     color:#94a3b8;
@@ -153,6 +179,17 @@ footer{
         <strong id="last-updated">Loading...</strong>
     </div>
 
+    <div class="stat">
+        <span>Feed Status</span>
+        <strong id="feed-status">Checking...</strong>
+    </div>
+
+    <div class="stat">
+        <span>Region</span>
+        <strong>Northern South America</strong>
+        <p>Venezuela focus area</p>
+    </div>
+
     <div class="legend">
         <h3>Magnitude Legend</h3>
         <p><span class="legend-dot yellow"></span> Magnitude 2.5–3.9</p>
@@ -165,12 +202,17 @@ footer{
         <p>Click an earthquake on the map to view details.</p>
     </div>
 
-    <p>
-        This dashboard displays recent earthquake activity for the Venezuela and northern South America region using live USGS GeoJSON data.
-    </p>
+    <div class="source-card">
+        <h3>Data Source</h3>
+        <p>
+            USGS Earthquake Hazards Program. Seismic data updates automatically when the page loads.
+        </p>
+    </div>
+
+    <button id="refreshBtn">🔄 Refresh Live Data</button>
 
     <footer>
-        Data source: USGS Earthquake Hazards Program. Seismic data updates automatically when the page loads.
+        This dashboard is a temporary GIS demonstration using open data. It is not an official emergency management product.
     </footer>
 </div>
 
@@ -188,11 +230,23 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors"
 }).addTo(map);
 
+document.getElementById("refreshBtn").addEventListener("click", function () {
+    location.reload();
+});
+
 const usgsUrl = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-01-01&minmagnitude=2.5&minlatitude=-2&maxlatitude=15&minlongitude=-75&maxlongitude=-55";
 
 fetch(usgsUrl)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("USGS feed request failed");
+        }
+        return response.json();
+    })
     .then(data => {
+        document.getElementById("feed-status").innerHTML =
+            '<span class="status-live">● LIVE</span>';
+
         const earthquakes = data.features;
 
         document.getElementById("quake-count").textContent = earthquakes.length;
@@ -265,6 +319,16 @@ fetch(usgsUrl)
                 padding: [30, 30]
             });
         }
+    })
+    .catch(error => {
+        document.getElementById("feed-status").innerHTML =
+            '<span class="status-offline">● FEED OFFLINE</span>';
+
+        document.getElementById("quake-count").textContent = "Unavailable";
+        document.getElementById("max-mag").textContent = "Unavailable";
+        document.getElementById("last-updated").textContent = "Unavailable";
+
+        console.error(error);
     });
 </script>
 
